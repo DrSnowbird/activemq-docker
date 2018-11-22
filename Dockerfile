@@ -80,12 +80,22 @@ RUN \
     echo "PRODUCT_VERSION=${PRODUCT_VERSION}" 
 
 ##################################
-#### Expose Ports ####
+#### ---- Expose Ports ----   ####
 ##################################
+## -- mqtt --
+EXPOSE 1883/tcp
+## -- amqp --
+EXPOSE 5672/tcp
+## -- stomp --
+EXPOSE 61613/tcp
+## -- ws --
+EXPOSE 61614/tcp
+## -- openwire --
 EXPOSE 61616/tcp
-EXPOSE 8161/tcp
 
-#### --- Working Directory ---- ####
+##################################
+#### ---   Starting up   ---- ####
+##################################
 WORKDIR ${HOME}
 USER ${USER_NAME}
 
@@ -95,12 +105,9 @@ COPY ./docker-entrypoint.sh /
 #### --- Enterpoint for container ---- ####
 ENV JAVA_HOME="/usr/java"
 ENV EXE_COMMAND="/opt/${PRODUCT_PROVIDER}/bin/${PRODUCT_EXE} start"
-#ENV EXE_COMMAND="/opt/${PRODUCT_PROVIDER}/bin/${PRODUCT_EXE} start > /tmp/smlog  2>&1 &;"
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 #### --- For debug only ---- ####
 #CMD ["/usr/bin/firefox"]
-#CMD ["/bin/bash", "-c", "/opt/${PRODUCT_PROVIDER}/bin/${PRODUCT_EXE}", "start"]
-
 

@@ -24,6 +24,12 @@ Image is pulling from openkbs/activemq-docker
 ./run.sh
 ```
 
+# Monitoring ActiveMQ
+You can access the Admin Web UI with the default login/password (admin/admin if not being changed by you).
+```
+http://<host-ip>:8161/
+```
+
 # Build
 You can build your own image locally.
 ```
@@ -37,5 +43,7 @@ You can build your own image locally.
 
 # References
 * [ActiveMQ - Starting](http://activemq.apache.org/version-5-getting-started.html#Version5GettingStarted-StartingActiveMQStartingActiveMQ)
+* [ActiveMQ - Test Installation](http://activemq.apache.org/version-5-getting-started.html#Version5GettingStarted-TestingtheInstallationTestingtheInstallation)
 * [SSL Transport](http://activemq.apache.org/ssl-transport-reference.html)
 * [ActiveMQ Examples](http://activemq.apache.org/examples.html)
+* [ActiveMQ Hello](https://www.codenotfound.com/jms-apache-activemq-installation.html)
